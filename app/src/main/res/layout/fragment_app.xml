@@ -1,0 +1,82 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <Toolbar
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        android:background="@drawable/app_titlebar"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Toolbar>
+
+    <ImageButton
+        android:id="@+id/studentcardbtn"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="16dp"
+        android:background="@mipmap/card_studentcard"
+        app:layout_constraintBottom_toTopOf="@+id/airconditionbtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lostbtn" />
+
+    <ImageButton
+        android:id="@+id/bankbtn"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginEnd="16dp"
+        android:background="@mipmap/card_bank"
+        app:layout_constraintBottom_toTopOf="@+id/internetbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campuscardbtn" />
+
+    <ImageButton
+        android:id="@+id/airconditionbtn"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="16dp"
+        android:background="@mipmap/card_aircondition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentcardbtn" />
+
+    <ImageButton
+        android:id="@+id/lostbtn"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="85dp"
+        android:background="@mipmap/card_lost"
+        app:layout_constraintBottom_toTopOf="@+id/studentcardbtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/campuscardbtn"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="85dp"
+        android:background="@mipmap/card_campuscard"
+        app:layout_constraintBottom_toTopOf="@+id/bankbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/internetbtn"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@mipmap/card_internet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bankbtn" />
+
+</android.support.constraint.ConstraintLayout>
