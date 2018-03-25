@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
+import cn.bmob.v3.Bmob;
 
 import java.util.ArrayList;
 

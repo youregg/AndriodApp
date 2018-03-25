@@ -28,6 +28,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    //Bomb云服务
+    compile 'cn.bmob.android:bmob-sdk:3.5.3'
+    //兼容Android6.0
+    compile 'cn.bmob.android:http-legacy:1.0'
 }
 
 configurations.all {

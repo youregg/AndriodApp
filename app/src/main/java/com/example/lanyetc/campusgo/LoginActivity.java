@@ -22,6 +22,10 @@ import android.view.View.OnClickListener;
 import android.widget.Toast;
 import android.view.Gravity;
 
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
 
     // 登陆按钮
@@ -58,13 +62,17 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
         // 设置按钮监听器
         logbtn.setOnClickListener(this);
+
+        // 第一：默认初始化
+        Bmob.initialize(this, "91da8de5dc31ab7f5ff8763aa82fda28");
     }
 
     @Override
     public void onClick(View v){
         switch (v.getId()){
-            //点击登陆anniu
+            //点击登陆按钮
             case  R.id.login_btn:
+                /*
                 //检测网络
                 if (!checkNetwork(this)) {
                     Toast toast = Toast.makeText(LoginActivity.this,"网络未连接", Toast.LENGTH_SHORT);
@@ -79,6 +87,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 dialog.setMessage("正在登陆，请稍后...");
                 dialog.setCancelable(false);
                 dialog.show();
+                */
+
                 // 创建子线程，分别进行Get和Post传输
                 new Thread(new MyThread()).start();
                 break;
@@ -97,13 +107,30 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     public class MyThread implements Runnable {
         @Override
         public void run() {
-            info = WebService.executeHttpGet(username.getText().toString(), password.getText().toString());
-            // info = WebServicePost.executeHttpPost(username.getText().toString(), password.getText().toString());
+            //bmob添加数据测试
+            Person p2 = new Person();
+            p2.setName("lucky");
+            p2.setAddress("北京海淀");
+            p2.save(new SaveListener<String>() {
+                @Override
+                public void done(String objectId,BmobException e) {
+                    if(e==null){
+                        Toast toast = Toast.makeText(LoginActivity.this,"添加数据成功，返回objectId为："+objectId, Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    }
+                    else{
+                        Toast toast = Toast.makeText(LoginActivity.this,"创建数据失败："+objectId, Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    }
+                }
+            });
             handler.post(new Runnable() {
                 @Override
                 public void run() {
                     infotv.setText(info);
-                    dialog.dismiss();
+                    //dialog.dismiss();
                 }
             });
         }
