@@ -1,11 +1,10 @@
-package com.example.lanyetc.campusgo;
+package com.example.lanyetc.campusgo.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -15,6 +14,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.example.lanyetc.campusgo.Bean._User;
+import com.example.lanyetc.campusgo.R;
 
 import java.util.List;
 

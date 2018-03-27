@@ -1,4 +1,4 @@
-package com.example.lanyetc.campusgo;
+package com.example.lanyetc.campusgo.ui.activity;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -21,6 +21,9 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.os.Handler;
+
+import com.example.lanyetc.campusgo.Bean._User;
+import com.example.lanyetc.campusgo.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;

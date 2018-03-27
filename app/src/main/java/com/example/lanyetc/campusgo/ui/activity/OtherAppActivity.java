@@ -1,4 +1,4 @@
-package com.example.lanyetc.campusgo;
+package com.example.lanyetc.campusgo.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+
+import com.example.lanyetc.campusgo.R;
 
 public class OtherAppActivity extends AppCompatActivity implements View.OnClickListener {
 

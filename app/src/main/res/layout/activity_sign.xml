@@ -7,7 +7,7 @@
     android:background="@drawable/sign_background"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context="com.example.lanyetc.campusgo.SignActivity">
+    tools:context="com.example.lanyetc.campusgo.ui.activity.SignActivity">
 
     <EditText
         android:id="@+id/et_sign_password"

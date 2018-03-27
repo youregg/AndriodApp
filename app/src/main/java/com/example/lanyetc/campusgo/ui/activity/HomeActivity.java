@@ -1,11 +1,9 @@
-package com.example.lanyetc.campusgo;
+package com.example.lanyetc.campusgo.ui.activity;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +11,13 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
-import android.widget.TabWidget;
-import android.widget.TextView;
-import cn.bmob.v3.Bmob;
+
+import com.example.lanyetc.campusgo.ui.fragment.HomeFragment;
+import com.example.lanyetc.campusgo.R;
+import com.example.lanyetc.campusgo.else_tools.Tab;
+import com.example.lanyetc.campusgo.ui.fragment.UserFragment;
+import com.example.lanyetc.campusgo.ui.fragment.AppFragment;
+import com.example.lanyetc.campusgo.ui.fragment.GPSFragment;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.lanyetc.campusgo;
+package com.example.lanyetc.campusgo.ui.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -8,20 +8,21 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 import android.view.Gravity;
+
+import com.example.lanyetc.campusgo.Bean._User;
+import com.example.lanyetc.campusgo.R;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;

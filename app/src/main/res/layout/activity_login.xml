@@ -7,7 +7,7 @@
     android:background="@drawable/login_background"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context="com.example.lanyetc.campusgo.LoginActivity">
+    tools:context="com.example.lanyetc.campusgo.ui.activity.LoginActivity">
 
     <EditText
         android:id="@+id/login_uername"

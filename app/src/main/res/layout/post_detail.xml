@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:background="@drawable/toolbar_background"
+        android:paddingTop="@dimen/padding_top">
+
+        <Button
+            android:id="@+id/post_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/close"
+            android:paddingBottom="13dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="13dp"
+            android:text="@string/post_detail"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/post_sub"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/submmit"
+            android:paddingBottom="13dp" />
+    </android.support.v7.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/edt_order_note_title"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/order_edt_note_bg"
+        android:gravity="bottom"
+        android:minLines="5"
+        android:padding="5dp"
+        android:text="标题"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="79dp" />
+
+    <EditText
+        android:id="@+id/edt_order_note_text"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/edt_order_note_title"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/order_edt_note_bg"
+        android:gravity="top"
+        android:minLines="5"
+        android:padding="5dp"
+        android:text="请记得描述出您在哪里什么时候捡到（丢）了什么东西（特征）哦~最好留下联系方式，让失主或好心人找到你~"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="79dp" />
+
+    <org.angmarch.views.NiceSpinner
+        android:id="@+id/nice_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/edt_order_note_text"
+        android:layout_alignLeft="@+id/edt_order_note_text"
+        android:layout_below="@+id/edt_order_note_text"
+        android:layout_marginTop="32dp" />
+</RelativeLayout>

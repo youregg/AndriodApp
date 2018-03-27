@@ -1,4 +1,4 @@
-package com.example.lanyetc.campusgo;
+package com.example.lanyetc.campusgo.ui.fragment;
 
 
 import android.content.Intent;
@@ -8,6 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
+import com.example.lanyetc.campusgo.ui.activity.OtherAppActivity;
+import com.example.lanyetc.campusgo.R;
+import com.example.lanyetc.campusgo.ui.activity.lostAndFoundActivity;
 
 
 /**
@@ -63,10 +67,16 @@ public class AppFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v){
-        //创建Intent对象
-        Intent intent = new Intent(getActivity(), OtherAppActivity.class);
-        //程序自动创建Bundle，然后将对Intent添加的数据装载在Bundle中，对用户透明
-        intent.putExtra("btnid", v.getId());
-        startActivity(intent);
+        if(v.getId() == R.id.lostbtn){
+            Intent intent =new Intent(getActivity(),lostAndFoundActivity.class);
+            startActivity(intent);
+        }
+        else {
+            //创建Intent对象
+            Intent intent = new Intent(getActivity(), OtherAppActivity.class);
+            //程序自动创建Bundle，然后将对Intent添加的数据装载在Bundle中，对用户透明
+            intent.putExtra("btnid", v.getId());
+            startActivity(intent);
+        }
     }
 }
