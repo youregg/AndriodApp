@@ -16,7 +16,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
-    <com.example.lanyetc.campusgo.CircleImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/icon_headimg"
         android:layout_width="120dp"
         android:layout_height="120dp"

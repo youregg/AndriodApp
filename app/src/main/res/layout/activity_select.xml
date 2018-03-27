@@ -7,14 +7,58 @@
     android:background="@mipmap/select_bg"
     tools:context="com.example.lanyetc.campusgo.SelectActivity">
 
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="wrap_content"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/head_btn"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_marginBottom="439dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="150dp"
+        android:src="@mipmap/headdefault"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/sp_institute"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:text="选择一个您喜欢的头像"
-        android:textColor="@color/colorTextInput"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="148dp" />
+        android:layout_marginEnd="105dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="57dp"
+        android:entries="@array/institute_labels"
+        android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head_btn"></Spinner>
+
+    <Spinner
+        android:id="@+id/sp_grade"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="105dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="39dp"
+        android:entries="@array/grade_labels"
+        android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_institute"></Spinner>
+
+    <ImageButton
+        android:id="@+id/btn_sign"
+        android:layout_width="173dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="208dp"
+        android:layout_marginEnd="119dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/signbtn_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_grade" />
+
 </android.support.constraint.ConstraintLayout>

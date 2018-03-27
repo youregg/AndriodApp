@@ -1,18 +1,33 @@
 package com.example.lanyetc.campusgo;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
-public class SignActivity extends AppCompatActivity {
+import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+
+public class SignActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private EditText et_sign_username;
+    private EditText et_sign_password;
+    private ImageButton nextbtn;
+    private ImageButton logbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +40,77 @@ public class SignActivity extends AppCompatActivity {
             //设置状态栏颜色为透明
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
+
+        //获取控件
+        et_sign_username = (EditText)findViewById(R.id.et_sign_username);
+        et_sign_password = (EditText)findViewById(R.id.et_sign_password);
+        logbtn = (ImageButton)findViewById(R.id.sign_login_btn);
+        nextbtn = (ImageButton)findViewById(R.id.next_btn);
+        //注册按钮监听事件
+        logbtn.setOnClickListener(this);
+        nextbtn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.next_btn:
+                String username = et_sign_username.getText().toString();
+                String password = et_sign_password.getText().toString();
+                //非空验证
+                if(username.isEmpty() || password.isEmpty()){
+                    Toast toast = Toast.makeText(this,"账号或密码不能为空",Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER,0,0);
+                    toast.show();
+                    return;
+                }
+                //使用SharedPreferences来传递数据
+                //1、打开Preferences，名称为userInfo，如果存在则打开它，否则创建新的Preferences
+                SharedPreferences userInfo = getSharedPreferences("userInfo",0);
+                //2、让setting处于编辑状态
+                SharedPreferences.Editor editor = userInfo.edit();
+                //3、存放数据
+                editor.putString("username",username);
+                editor.putString("password",password);
+                //4、完成提交
+                editor.commit();
+
+                //判断用户名是否已经存在
+                BmobQuery<_User> query = new BmobQuery<_User>();
+                query.addWhereEqualTo("username",username);
+                query.findObjects(new FindListener<_User>() {
+                    @Override
+                    public void done(List<_User> list, BmobException e) {
+                        if(e == null){
+                            if(list.size() == 0){
+                                //跳转页面
+                                Intent intent1 = new Intent(SignActivity.this, SelectActivity.class);
+                                startActivity(intent1);
+                            }
+                            else {
+                                Toast toast = Toast.makeText(SignActivity.this,"用户已存在，请尝试其他用户名。",Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.CENTER,0,0);
+                                toast.show();
+                            }
+                        }
+                        else{
+                            Toast toast = Toast.makeText(SignActivity.this,"注册失败： "+ e,Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER,0,0);
+                            toast.show();
+                        }
+                    }
+                });
+                break;
+            case R.id.sign_login_btn:
+                //跳转页面
+                //创建Intent对象
+                Intent intent2 = new Intent(this, LoginActivity.class);
+                startActivity(intent2);
+                break;
+            default:
+                break;
+        }
+
     }
 
     @Override

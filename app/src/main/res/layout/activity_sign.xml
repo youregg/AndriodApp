@@ -10,7 +10,7 @@
     tools:context="com.example.lanyetc.campusgo.SignActivity">
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/et_sign_password"
         android:layout_width="225dp"
         android:layout_height="41dp"
         android:layout_marginBottom="332dp"
@@ -29,10 +29,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/et_sign_username" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/et_sign_username"
         android:layout_width="225dp"
         android:layout_height="40dp"
         android:layout_marginBottom="10dp"
@@ -47,13 +47,13 @@
         android:textSize="18sp"
         android:theme="@style/loginEditTextStyle"
         android:typeface="normal"
-        app:layout_constraintBottom_toTopOf="@+id/editText5"
+        app:layout_constraintBottom_toTopOf="@+id/et_sign_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/next_btn"
         android:layout_width="151dp"
         android:layout_height="46dp"
         android:layout_marginBottom="256dp"
@@ -65,11 +65,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintTop_toBottomOf="@+id/et_sign_password" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/sign_login_btn"
         android:layout_width="98dp"
         android:layout_height="16dp"
         android:layout_marginBottom="233dp"
@@ -80,6 +79,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/next_btn" />
 
 </android.support.constraint.ConstraintLayout>

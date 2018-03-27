@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import android.view.Gravity;
 
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -30,10 +32,12 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
     // 登陆按钮
     private ImageButton logbtn;
+    //注册按钮
+    private ImageButton signbtn;
     // 调试文本，注册文本
     private TextView infotv, regtv;
     // 显示用户名和密码
-    EditText username, password;
+    EditText et_login_username, et_login_password;
     // 创建等待框
     private ProgressDialog dialog;
     // 返回的数据
@@ -55,13 +59,15 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         }
 
         // 获取控件
-        username = (EditText) findViewById(R.id.login_uername);
-        password = (EditText) findViewById(R.id.login_password);
+        et_login_username = (EditText) findViewById(R.id.login_uername);
+        et_login_password = (EditText) findViewById(R.id.login_password);
         logbtn = (ImageButton) findViewById(R.id.login_btn);
+        signbtn = (ImageButton)findViewById(R.id.login_sign_btn);
         infotv = (TextView) findViewById(R.id.info);
 
         // 设置按钮监听器
         logbtn.setOnClickListener(this);
+        signbtn.setOnClickListener(this);
 
         // 第一：默认初始化
         Bmob.initialize(this, "91da8de5dc31ab7f5ff8763aa82fda28");
@@ -69,10 +75,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
     @Override
     public void onClick(View v){
+        Log.v("Button: ", v.getId()+"");
         switch (v.getId()){
             //点击登陆按钮
             case  R.id.login_btn:
-                /*
+
                 //检测网络
                 if (!checkNetwork(this)) {
                     Toast toast = Toast.makeText(LoginActivity.this,"网络未连接", Toast.LENGTH_SHORT);
@@ -87,7 +94,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 dialog.setMessage("正在登陆，请稍后...");
                 dialog.setCancelable(false);
                 dialog.show();
-                */
+
 
                 // 创建子线程，分别进行Get和Post传输
                 new Thread(new MyThread()).start();
@@ -99,6 +106,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 // overridePendingTransition(anim_enter);
                 startActivity(regItn);
                 break;
+            default:
+                break;
 
         }
     }
@@ -108,19 +117,26 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         @Override
         public void run() {
             //bmob添加数据测试
-            Person p2 = new Person();
-            p2.setName("lucky");
-            p2.setAddress("北京海淀");
-            p2.save(new SaveListener<String>() {
+            String username = et_login_username.getText().toString();
+            String password = et_login_password.getText().toString();
+            if(username.isEmpty() || password.isEmpty()){
+                Toast toast = Toast.makeText(LoginActivity.this,"密码或用户名不能为空！",Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+            }
+            _User p2 = new _User();
+            p2.setUsername(username);
+            p2.setPassword(password);
+            p2.login(new SaveListener<BmobUser>() {
                 @Override
-                public void done(String objectId,BmobException e) {
+                public void done(BmobUser bmobUser,BmobException e) {
                     if(e==null){
-                        Toast toast = Toast.makeText(LoginActivity.this,"添加数据成功，返回objectId为："+objectId, Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(LoginActivity.this,"登陆成功", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
                     }
                     else{
-                        Toast toast = Toast.makeText(LoginActivity.this,"创建数据失败："+objectId, Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(LoginActivity.this,"登陆失败，用户名或密码不正确", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
                     }
@@ -130,7 +146,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 @Override
                 public void run() {
                     infotv.setText(info);
-                    //dialog.dismiss();
+                    dialog.dismiss();
                 }
             });
         }
