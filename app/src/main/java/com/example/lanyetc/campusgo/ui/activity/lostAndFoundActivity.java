@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.astuetz.PagerSlidingTabStrip;
@@ -18,6 +19,7 @@ public class lostAndFoundActivity extends FragmentActivity implements View.OnCli
     private ViewPager pager;
     private PagerSlidingTabStrip tab;
     private ImageButton postbtn;
+    private Button backbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,9 @@ public class lostAndFoundActivity extends FragmentActivity implements View.OnCli
         tab.setTextSize(50);
 
         postbtn = findViewById(R.id.postBtn);
+        backbtn = findViewById(R.id.btn_lost_back);
         postbtn.setOnClickListener(this);
+        backbtn.setOnClickListener(this);
 
         //实现透明状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0及以上
@@ -53,8 +57,13 @@ public class lostAndFoundActivity extends FragmentActivity implements View.OnCli
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.postBtn:
-                Intent intent =new Intent(lostAndFoundActivity.this,postDetailActivity.class);
-                startActivity(intent);
+                Intent intent1 =new Intent(lostAndFoundActivity.this,postDetailActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.btn_lost_back:
+                finish();
+                break;
+            default:
                 break;
         }
     }

@@ -17,7 +17,7 @@
         android:paddingTop="@dimen/padding_top">
 
         <Button
-            android:id="@+id/back"
+            android:id="@+id/btn_lost_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="left"
