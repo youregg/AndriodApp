@@ -1,6 +1,7 @@
 package com.example.lanyetc.campusgo.Adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,7 @@ public class listAdapter extends BaseAdapter {
         }
         allEntity news=mDatas.get(position);
         holder.tvnews1.setText(news.getTitle());
-        holder.ivnews.setImageResource(news.getImages());
+        holder.ivnews.setImageURI(Uri.parse(news.getPictureID()));
         holder.tvnews2.setText(news.getUserName());
         holder.tvnews3.setText(news.getTime());
 

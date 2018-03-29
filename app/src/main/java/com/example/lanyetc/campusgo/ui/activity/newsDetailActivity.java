@@ -2,6 +2,7 @@ package com.example.lanyetc.campusgo.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lanyetc.campusgo.R;
+
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * Created by ZHANGXY on 2018/3/24.
@@ -26,7 +30,7 @@ public class newsDetailActivity extends AppCompatActivity implements View.OnClic
     private ImageView news_portrait;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        Bmob.initialize(this, "91da8de5dc31ab7f5ff8763aa82fda28");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_detail);
 
@@ -47,8 +51,8 @@ public class newsDetailActivity extends AppCompatActivity implements View.OnClic
         news_time.setText(time);
         String content= intent.getStringExtra("news_content");
         news_content.setText(content);
-        int image= bundle.getInt("news_portrait");
-        news_portrait.setImageResource(image);
+        String image= intent.getStringExtra("news_portrait");
+        news_portrait.setImageURI(Uri.parse(image));
 
         backbtn = findViewById(R.id.news_back);
         backbtn.setOnClickListener(this);

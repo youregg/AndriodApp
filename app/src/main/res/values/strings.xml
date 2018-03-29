@@ -14,10 +14,6 @@
     <string name="go">到这去</string>
     <string name="loc">位置</string>
     <string name="todo">TODO</string>
-    <string name="jishi_info">济事楼位于校园正门，是呈半圆排列的四栋行政楼中的一幢。济事楼又叫培训楼，有软院、中德学院、汽车学院的实验室。二楼是同济大学职业教育学院。软件学院的大部分事务都在济事楼办理。</string>
-    <string name="jishi_servicce">
-        1楼：中德学院实验室。\n2楼：同济大学技术教育学院。\n3楼：软件学院实验室。\n4楼：TAC苹果俱乐部，软院实验室，机房。444 软院教务办，其余为教师办公室。\n5楼：谷歌俱乐部，paypal实验室，盛大俱乐部，机房，软院团学联活动室，教师办公室，软院实验室。
-    </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lost_name">失物招领</string>

@@ -14,14 +14,8 @@ public class _User extends BmobUser {
     private BmobFile image;
     private String institute;
     private String grade;
-/*
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
 
+/*
     public String getPassword() {
         return password;
     }

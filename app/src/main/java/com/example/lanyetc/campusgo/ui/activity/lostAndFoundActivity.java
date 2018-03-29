@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 import com.astuetz.PagerSlidingTabStrip;
 import com.example.lanyetc.campusgo.R;
 
+import cn.bmob.v3.Bmob;
+
 public class lostAndFoundActivity extends FragmentActivity implements View.OnClickListener {
     private ViewPager pager;
     private PagerSlidingTabStrip tab;
@@ -23,7 +25,7 @@ public class lostAndFoundActivity extends FragmentActivity implements View.OnCli
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        Bmob.initialize(this, "91da8de5dc31ab7f5ff8763aa82fda28");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //绑定ViewPager和PagerSlidingTabStrip

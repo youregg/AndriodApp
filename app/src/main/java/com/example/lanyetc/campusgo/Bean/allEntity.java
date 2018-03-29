@@ -1,5 +1,7 @@
 package com.example.lanyetc.campusgo.Bean;
 
+import cn.bmob.v3.datatype.BmobFile;
+
 /**
  * Created by ZHANGXY on 2018/3/22.
  */
@@ -10,15 +12,21 @@ public class allEntity {
     private String Time;
     private String content;
     private int images;
-    private int id;
+    private  String pictureID;
 
-    public allEntity(String title, int images, String userName, String Time, int id, String content) {
+    public allEntity(String title, String pictureID, String userName, String Time, String content) {
         this.title=title;
         this.userName=userName;
-        this.images=images;
+        this.pictureID=pictureID;
         this.Time=Time;
-        this.id = id;
         this.content=content;
+    }
+    public String getPictureID() {
+        return pictureID;
+    }
+
+    public void setPictureID(String pictureID) {
+        this.pictureID = pictureID;
     }
 
     public void setTime(String Time) {
@@ -33,9 +41,6 @@ public class allEntity {
     public void setImages(int images) {
         this.images = images;
     }
-    public void setId(int id) {
-        this.id = id;
-    }
     public void setContent(String content) {this.content=content;}
 
     public String getTitle() {
@@ -49,9 +54,6 @@ public class allEntity {
     }
     public int getImages() {
         return images;
-    }
-    public int getId() {
-        return id;
     }
     public String getContent(){return content;}
 }
