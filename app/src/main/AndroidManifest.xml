@@ -27,15 +27,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.LoginActivity">
-
-        </activity>
-        <activity android:name=".ui.activity.SignActivity" />
-        <activity android:name=".ui.activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.SignActivity" />
+        <activity android:name=".ui.activity.HomeActivity">
         </activity>
         <activity android:name=".ui.activity.OtherAppActivity" />
         <activity android:name=".ui.activity.SelectActivity"/>

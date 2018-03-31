@@ -1,5 +1,6 @@
 package com.example.lanyetc.campusgo.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.lanyetc.campusgo.Bean.Post;
 import com.example.lanyetc.campusgo.Bean.Publish;
+import com.example.lanyetc.campusgo.Bean._User;
 import com.example.lanyetc.campusgo.R;
 
 import org.angmarch.views.NiceSpinner;
@@ -22,6 +24,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -97,7 +100,7 @@ public class postDetailActivity extends AppCompatActivity implements View.OnClic
                 postObj.setTitle(post_title);
                 postObj.setContent(post_content);
                 postObj.setType(spinner_type);
-
+                postObj.setAuthor(BmobUser.getCurrentUser(_User.class));
                 postObj.save(new SaveListener<String>() {
                     @Override
                     public void done(String s, BmobException e) {
@@ -126,7 +129,9 @@ public class postDetailActivity extends AppCompatActivity implements View.OnClic
                     }
 
                 });
-
+                Intent intent = new Intent(postDetailActivity.this, lostAndFoundActivity.class);
+                intent.putExtra("id",1);
+                startActivity(intent);
                 finish();
                 break;
         }

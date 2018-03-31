@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.ImageButton;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.example.lanyetc.campusgo.R;
+import com.example.lanyetc.campusgo.ui.fragment.Fragment1;
 
 import cn.bmob.v3.Bmob;
 

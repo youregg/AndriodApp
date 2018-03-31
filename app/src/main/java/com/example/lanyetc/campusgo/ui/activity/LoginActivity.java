@@ -1,13 +1,17 @@
 package com.example.lanyetc.campusgo.ui.activity;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,6 +49,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     private String info;
     // 返回主线程更新数据
     private static Handler handler = new Handler();
+    protected static final int MMM1 = 0;
+    protected static final int MMM2 = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +78,54 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
         // 第一：默认初始化
         Bmob.initialize(this, "91da8de5dc31ab7f5ff8763aa82fda28");
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {// 没有读取手机状态权限。
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_PHONE_STATE)) {
+                // 用户拒绝过这个权限了，应该提示用户，为什么需要这个权限。
+            } else {
+                // 申请授权。
+                ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.READ_PHONE_STATE}, MMM1);
+            }
+        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {// 没有读写存储权限。
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                // 用户拒绝过这个权限了，应该提示用户，为什么需要这个权限。
+            } else {
+                // 申请授权。
+                ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MMM2);
+            }
+        }
+    }
+
+    //处理权限请求
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MMM1:
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                break;
+            case MMM2:
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                } else {
+                }
+
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
     }
 
     @Override
@@ -95,7 +149,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 dialog.setMessage("正在登陆，请稍后...");
                 dialog.setCancelable(false);
                 dialog.show();
-
 
                 // 创建子线程，分别进行Get和Post传输
                 new Thread(new MyThread()).start();
@@ -135,18 +188,24 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                         Toast toast = Toast.makeText(LoginActivity.this,"登陆成功", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(intent);
                     }
                     else{
                         Toast toast = Toast.makeText(LoginActivity.this,"登陆失败，用户名或密码不正确", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
+                        Log.v("登陆失败：",e.toString());
                     }
                 }
             });
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    infotv.setText(info);
+                    /*
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    */
                     dialog.dismiss();
                 }
             });

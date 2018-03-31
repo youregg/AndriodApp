@@ -58,7 +58,7 @@ public class listAdapter extends BaseAdapter {
         }
         allEntity news=mDatas.get(position);
         holder.tvnews1.setText(news.getTitle());
-        holder.ivnews.setImageURI(Uri.parse(news.getPictureID()));
+        holder.ivnews.setImageBitmap(news.getImageSrc());   //设置图片的uri以显示图片
         holder.tvnews2.setText(news.getUserName());
         holder.tvnews3.setText(news.getTime());
 

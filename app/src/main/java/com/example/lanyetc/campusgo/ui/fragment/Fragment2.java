@@ -61,10 +61,12 @@ public class Fragment2 extends Fragment {
 		list = (ListView)view.findViewById(R.id.lvnews);
 		mDatas = new ArrayList<>();
 		getLostData();
+		/*
 		for(int j = 0; j <titles.size(); j++){
 			allEntity bean = new allEntity(titles.get(j),images.get(j),mName.get(j),Time.get(j),Content.get(j));
 			mDatas.add(bean);
 		}
+		*/
 		lAdapter = new com.example.lanyetc.campusgo.Adapter.listAdapter(getContext(),mDatas);
 		list.setAdapter(lAdapter);
 		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -75,7 +77,7 @@ public class Fragment2 extends Fragment {
 				intent.putExtra("news_user", mDatas.get(position).getUserName());
 				intent.putExtra("news_time", mDatas.get(position).getTime());
 				intent.putExtra("news_content", mDatas.get(position).getContent());
-				intent.putExtra("news_portrait", mDatas.get(position).getPictureID());
+				intent.putExtra("news_portrait", mDatas.get(position).getImageSrc());
 				startActivity(intent);
 			}
 		});

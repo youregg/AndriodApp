@@ -52,8 +52,8 @@
         android:gravity="bottom"
         android:minLines="5"
         android:padding="5dp"
-        android:text="标题"
-        android:textColor="@android:color/darker_gray"
+        android:hint="标题"
+        android:textColorHint="@android:color/darker_gray"
         android:textSize="25sp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="79dp" />
@@ -70,8 +70,8 @@
         android:gravity="top"
         android:minLines="5"
         android:padding="5dp"
-        android:text="请记得描述出您在哪里什么时候捡到（丢）了什么东西（特征）哦~最好留下联系方式，让失主或好心人找到你~"
-        android:textColor="@android:color/darker_gray"
+        android:hint="请记得描述出您在哪里什么时候捡到（丢）了什么东西（特征）哦~最好留下联系方式，让失主或好心人找到你~"
+        android:textColorHint="@android:color/darker_gray"
         android:textSize="14sp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="79dp" />

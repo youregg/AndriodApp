@@ -12,6 +12,7 @@ public class Post extends BmobObject{
     private  String content;    //帖子内容
     private BmobDate updateTime;   //帖子更新时间
     private boolean type;     //帖子类型，true为失物，false 为招领
+    private _User author;
 
     public void setTitle(String title) {
         this.title = title;
@@ -43,5 +44,13 @@ public class Post extends BmobObject{
 
     public boolean isType() {
         return type;
+    }
+
+    public void setAuthor(_User author) {
+        this.author = author;
+    }
+
+    public _User getAuthor() {
+        return author;
     }
 }
