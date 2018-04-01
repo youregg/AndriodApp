@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/like_btn"
+        android:contentDescription="TODO" />
+
+    <com.example.lanyetc.campusgo.else_tools.BounceScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_above="@+id/f_con"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="47dp"
+                android:paddingTop="0dp"
+                android:background="@drawable/details_bg" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="81dp"
+                android:background="#00ffffff"
+                android:paddingTop="@dimen/padding_top">
+
+                <Button
+                    android:id="@+id/jiren_back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="left"
+                    android:layout_marginBottom="13dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/backbtn" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/tab"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:text="济人楼"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </android.support.v7.widget.Toolbar>
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/toolbar"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/library" />
+
+            <TextView
+                android:id="@+id/f_con"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:maxLines="15"
+                android:text="济人楼又叫会议楼，位于正门口的半圆形排列建筑行列，在济事楼旁。济人楼主要承办各种会议和讲座，以及各种嘉定校区的校级院级晚会。济人楼一楼右侧为健身房，是同学们健身锻炼的首选。" />
+
+            <RelativeLayout
+                android:id="@+id/loc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/f_con"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loc"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/go_lib"
+                    android:layout_width="15.4dp"
+                    android:layout_height="19.6dp"
+                    android:layout_below="@+id/location"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/locate_small"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="50dp"
+                    android:layout_height="19.6dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="12dp"
+                    android:layout_toEndOf="@+id/go_lib"
+                    android:text="@string/go"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/open_time"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/loc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/open"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/info"
+                    android:layout_marginTop="5dp"
+                    android:text="全天开放，但办公时间为正常上课时间"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/open_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="服务"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/service"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="5dp"
+                    android:maxLines="10"
+                    android:text="1楼：国会101会议厅，经常举办各种演出活动及讲座、会议。\n2楼:小会议厅\n3楼：阶梯教室，小会议厅。"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </com.example.lanyetc.campusgo.else_tools.BounceScrollView>
+
+</RelativeLayout>

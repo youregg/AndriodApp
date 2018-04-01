@@ -29,6 +29,7 @@ import com.example.lanyetc.campusgo.ui.activity.LoginActivity;
 import com.example.lanyetc.campusgo.ui.activity.newsDetailActivity;
 import com.example.lanyetc.campusgo.ui.activity.postDetailActivity;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -121,10 +122,12 @@ public class Fragment1 extends Fragment {
 		final _User user = BmobUser.getCurrentUser(_User.class);
 		BmobQuery<Post> query = new BmobQuery<Post>();
 		query.include("author");
+		query.order("-updatedAt");
 		query.findObjects(new FindListener<Post>() {
 			@Override
 			public void done(List<Post> list, BmobException e) {
 				if(e==null){
+					int i = 0;
 					for(Post post:list){
 						Log.v("username: ", post.getAuthor().getUsername());
 						mName.add(post.getAuthor().getUsername());
@@ -133,9 +136,15 @@ public class Fragment1 extends Fragment {
 						Content.add(post.getContent());
 						BmobFile bmobFile = post.getAuthor().getImage();
 						images.add(bmobFile.getFileUrl());
+						tmpItem = new allEntity(titles.get(i), images.get(i), mName.get(i), Time.get(i), Content.get(i));
+						mDatas.add(tmpItem);
+						i++;
 					}
-					//新开一个线程，从网络上获取图片
-					new Thread(new Fragment1.BitmapThread()).start();
+					//发送消息，更新ui
+					Message message = new Message();
+					message.what = DOWNLOAD_IMAGE_MSG;
+					message.obj = mDatas;
+					handler.sendMessage(message);
 				}
 				else{
 					Log.v("失败： ",e.toString());
@@ -156,43 +165,6 @@ public class Fragment1 extends Fragment {
 					//dialog.dismiss();
 				}
 			});
-		}
-	}
-
-	//根据URL获得bitmap资源
-	public static Bitmap getBitmapFromURL(String src) {
-		try {
-			Log.e("src",src);
-			URL url = new URL(src);
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.setDoInput(true);
-			connection.connect();
-			InputStream input = connection.getInputStream();
-			Bitmap myBitmap = BitmapFactory.decodeStream(input);
-			Log.e("Bitmap","returned");
-			return myBitmap;
-		} catch (IOException e) {
-			e.printStackTrace();
-			Log.e("Exception",e.getMessage());
-			return null;
-		}
-	}
-
-	// 子线程接收数据，主线程修改数据
-	public class BitmapThread implements Runnable {
-		@Override
-		public void run() {
-			int i = 0;
-			for (String url : images) {
-				Bitmap imagesrc = getBitmapFromURL(url);
-				tmpItem = new allEntity(titles.get(i), imagesrc, mName.get(i), Time.get(i), Content.get(i));
-				mDatas.add(tmpItem);
-				i++;
-			}
-			Message message = new Message();
-			message.what = DOWNLOAD_IMAGE_MSG;
-			message.obj = mDatas;
-			handler.sendMessage(message);
 		}
 	}
 }

@@ -15,14 +15,16 @@ public class allEntity implements Parcelable {
     private String userName;
     private String Time;
     private String content;
+    private String imageURL;
     private Bitmap imageSrc;
     //private  String pictureID;
 
     //Adapter中填充的帖子条目实体
-    public allEntity(String title, Bitmap imageSrc, String userName, String Time, String content) {
+    public allEntity(String title, String imageURL, String userName, String Time, String content) {
         this.title=title;   //标题
         this.userName=userName;   //用户名
-        this.imageSrc = imageSrc;   //图片路径
+        this.imageURL = imageURL;  //图片URL
+        //this.imageSrc = imageSrc;   //图片路径
         this.Time=Time;    //发帖时间
         this.content=content;   //内容
     }
@@ -51,6 +53,14 @@ public class allEntity implements Parcelable {
     }
 
     public void setContent(String content) {this.content=content;}
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
 
     public String getTitle() {
         return title;

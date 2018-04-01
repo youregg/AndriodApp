@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.lanyetc.campusgo.Bean.allEntity;
 import com.example.lanyetc.campusgo.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -58,10 +59,10 @@ public class listAdapter extends BaseAdapter {
         }
         allEntity news=mDatas.get(position);
         holder.tvnews1.setText(news.getTitle());
-        holder.ivnews.setImageBitmap(news.getImageSrc());   //设置图片的uri以显示图片
+        //holder.ivnews.setImageBitmap(news.getImageSrc());   //设置图片的uri以显示图片
         holder.tvnews2.setText(news.getUserName());
         holder.tvnews3.setText(news.getTime());
-
+        Picasso.with(context).load(news.getImageURL()).into(holder.ivnews);  //直接使用框架设置图片
         return convertView;
     }
     private class Holder {

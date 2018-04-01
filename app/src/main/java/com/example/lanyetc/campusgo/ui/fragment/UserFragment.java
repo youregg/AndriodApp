@@ -8,11 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
+import com.example.lanyetc.campusgo.Bean._User;
 import com.example.lanyetc.campusgo.R;
+import com.example.lanyetc.campusgo.else_tools.CircleImageView;
 import com.example.lanyetc.campusgo.ui.activity.OtherAppActivity;
 import com.example.lanyetc.campusgo.ui.activity.lostAndFoundActivity;
 import com.example.lanyetc.campusgo.ui.activity.setActivity;
+import com.squareup.picasso.Picasso;
+
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
 
 
 /**
@@ -21,6 +28,7 @@ import com.example.lanyetc.campusgo.ui.activity.setActivity;
 public class UserFragment extends Fragment implements View.OnClickListener{
     private ImageButton setbtn;
     private View rootView;//缓存Fragment view
+    private ImageView headimage;
     public UserFragment() {
         // Required empty public constructor
     }
@@ -39,8 +47,12 @@ public class UserFragment extends Fragment implements View.OnClickListener{
             parent.removeView(rootView);
         }
         setbtn = rootView.findViewById(R.id.setBtn);
+        headimage = (ImageView) rootView.findViewById(R.id.icon_headimg);
         //设置按钮监听器
         setbtn.setOnClickListener(this);
+        _User user = BmobUser.getCurrentUser(_User.class);
+        BmobFile bmobFile = user.getImage();
+        Picasso.with(this.getContext()).load(bmobFile.getFileUrl()).into(headimage);
         return rootView;
     }
 
