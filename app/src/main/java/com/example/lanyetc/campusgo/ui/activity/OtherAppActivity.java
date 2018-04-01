@@ -53,12 +53,17 @@ public class OtherAppActivity extends AppCompatActivity implements View.OnClickL
             localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
         }
 
-        backbtn = findViewById(R.id.backbtn);
+        backbtn = findViewById(R.id.aircondition_back);
         backbtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
-        finish();
+        switch (v.getId()){
+            case  R.id.aircondition_back:
+                finish();
+                break;
+
+        }
     }
 }

@@ -30,6 +30,7 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
     private EditText et_sign_password;
     private ImageButton nextbtn;
     private ImageButton logbtn;
+    private  ImageButton signBackBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +47,13 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         //获取控件
         et_sign_username = (EditText)findViewById(R.id.et_sign_username);
         et_sign_password = (EditText)findViewById(R.id.et_sign_password);
+        signBackBtn = findViewById(R.id.sign_back);
         logbtn = (ImageButton)findViewById(R.id.sign_login_btn);
         nextbtn = (ImageButton)findViewById(R.id.next_btn);
         //注册按钮监听事件
         logbtn.setOnClickListener(this);
         nextbtn.setOnClickListener(this);
+        signBackBtn.setOnClickListener(this);
     }
 
     @Override
@@ -109,6 +112,8 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent2 = new Intent(this, LoginActivity.class);
                 startActivity(intent2);
                 break;
+            case R.id.sign_back:
+                finish();
             default:
                 break;
         }

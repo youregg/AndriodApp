@@ -9,6 +9,16 @@
     android:focusableInTouchMode="true"
     tools:context="com.example.lanyetc.campusgo.ui.activity.SignActivity">
 
+    <ImageButton
+        android:id="@+id/sign_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="left"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/backbtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <EditText
         android:id="@+id/et_sign_password"
         android:layout_width="225dp"
