@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.lanyetc.campusgo.Bean._User;
 import com.example.lanyetc.campusgo.R;
@@ -17,6 +18,8 @@ import com.example.lanyetc.campusgo.ui.activity.OtherAppActivity;
 import com.example.lanyetc.campusgo.ui.activity.lostAndFoundActivity;
 import com.example.lanyetc.campusgo.ui.activity.setActivity;
 import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
@@ -29,6 +32,8 @@ public class UserFragment extends Fragment implements View.OnClickListener{
     private ImageButton setbtn;
     private View rootView;//缓存Fragment view
     private ImageView headimage;
+    private TextView tv_grade;
+    private TextView tv_institute;
     public UserFragment() {
         // Required empty public constructor
     }
@@ -48,11 +53,15 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         }
         setbtn = rootView.findViewById(R.id.setBtn);
         headimage = (ImageView) rootView.findViewById(R.id.icon_headimg);
+        tv_grade = (TextView) rootView.findViewById(R.id.text_grade);
+        tv_institute = (TextView) rootView.findViewById(R.id.text_institute);
         //设置按钮监听器
         setbtn.setOnClickListener(this);
         _User user = BmobUser.getCurrentUser(_User.class);
         BmobFile bmobFile = user.getImage();
         Picasso.with(this.getContext()).load(bmobFile.getFileUrl()).into(headimage);
+        tv_grade.setText(user.getGrade());
+        tv_institute.setText(user.getInstitute());
         return rootView;
     }
 

@@ -202,11 +202,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    /*
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                    */
-                    dialog.dismiss();
+
                 }
             });
         }

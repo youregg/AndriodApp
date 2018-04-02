@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.lanyetc.campusgo.ui.activity.libActivity">
 
     <ImageButton
         android:layout_width="100dp"
@@ -57,7 +58,7 @@
                     android:layout_above="@+id/tab"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
-                    android:text="同心楼"
+                    android:text="F楼"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -103,8 +104,8 @@
 
                 <ImageButton
                     android:id="@+id/go_lib"
-                    android:layout_width="15.4dp"
-                    android:layout_height="19.6dp"
+                    android:layout_width="23.1dp"
+                    android:layout_height="29.4dp"
                     android:layout_below="@+id/location"
                     android:layout_marginStart="26dp"
                     android:layout_marginTop="5dp"

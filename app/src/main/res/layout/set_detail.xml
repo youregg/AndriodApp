@@ -59,6 +59,7 @@
             android:textSize="20sp" />
 
         <ImageButton
+            android:id="@+id/btn_quit"
             android:layout_width="300dp"
             android:layout_height="90dp"
             android:layout_alignParentBottom="true"

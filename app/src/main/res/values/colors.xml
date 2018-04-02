@@ -10,4 +10,6 @@
     <color name="colorTextHint">#bdccd3</color>
     <color name="colorTextInput">#6b808a</color>
     <color name="colorBackground">#ffffff</color>
+    <color name="colorAnswerbg">#e6eff3</color>
+    <color name="colorBuilding">#a8acae</color>
 </resources>

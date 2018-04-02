@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.example.lanyetc.campusgo.ui.activity.libActivity">
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -15,7 +16,7 @@
         android:background="@drawable/like_btn"
         android:contentDescription="TODO" />
 
-    <com.znn.sitp.BounceScrollView
+    <com.example.lanyetc.campusgo.else_tools.BounceScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
@@ -104,8 +105,8 @@
 
                 <ImageButton
                     android:id="@+id/go_jishi"
-                    android:layout_width="15.4dp"
-                    android:layout_height="19.6dp"
+                    android:layout_width="23.1dp"
+                    android:layout_height="29.4dp"
                     android:layout_below="@+id/jishi_location"
                     android:layout_marginStart="26dp"
                     android:layout_marginTop="5dp"
@@ -159,7 +160,8 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="5dp"
                 android:layout_below="@+id/open_time"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <TextView
                     android:id="@+id/jishi_service"
@@ -182,7 +184,7 @@
         </RelativeLayout>
 
 
-    </com.znn.sitp.BounceScrollView>
+    </com.example.lanyetc.campusgo.else_tools.BounceScrollView>
 
 
 </RelativeLayout>

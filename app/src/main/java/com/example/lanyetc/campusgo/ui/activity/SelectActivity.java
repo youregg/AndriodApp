@@ -76,6 +76,8 @@ public class SelectActivity extends AppCompatActivity implements View.OnClickLis
                                Toast toast = Toast.makeText(SelectActivity.this,"注册成功", Toast.LENGTH_SHORT);
                                toast.setGravity(Gravity.CENTER, 0, 0);
                                toast.show();
+                               Intent intent = new Intent(SelectActivity.this, LoginActivity.class);
+                               startActivity(intent);
                            }
                            else if (e.getErrorCode() == 202){
                                Toast toast = Toast.makeText(SelectActivity.this,"注册失败,用户名已存在。", Toast.LENGTH_SHORT);
