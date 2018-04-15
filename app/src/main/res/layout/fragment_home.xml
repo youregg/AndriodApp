@@ -10,9 +10,9 @@
 
     <Toolbar
         android:id="@+id/toolbar2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="95dp"
-        android:background="@drawable/app_titlebar"
+        android:background="@mipmap/home_titlebar"
         app:layout_constraintBottom_toTopOf="@+id/lostbtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

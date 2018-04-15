@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://E:\Coding\AndroidApp\AndriodApp.iml" filepath="E:\Coding\AndroidApp\AndriodApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/AndroidApp.iml" filepath="$PROJECT_DIR$/AndroidApp.iml" />
-      <module fileurl="file://D:\CampusGo\AndriodApp\AndroidApp.iml" filepath="D:\CampusGo\AndriodApp\AndroidApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
